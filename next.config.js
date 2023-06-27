@@ -1,6 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+import withTM from "next-transpile-modules";
+export default withTM(["gcp-metadata"])({
+  webpack5: true,
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback.fs = false;
+    }
 
-module.exports = nextConfig
+    return config;
+  },
+});

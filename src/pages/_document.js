@@ -1,13 +1,17 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
-export default function Document() {
+function MyDocument() {
   return (
-    <Html lang="en">
-      <Head />
+    <Html>
+      <Head>
+        <script src="https://www.youtube.com/player_api"></script>
+      </Head>
       <body>
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }
+
+export default MyDocument;
